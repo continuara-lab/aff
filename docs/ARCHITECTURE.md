@@ -1,6 +1,6 @@
 # AFF and Proofpress: open format and reference governance product
 
-Both [AFF](https://github.com/only-then-labs/aff) and
+Both [AFF](https://github.com/continuara-lab/aff) and
 [Proofpress](https://github.com/chenmingtang830/proofpress) are Apache-2.0
 open-source projects. They have different responsibilities.
 
@@ -10,6 +10,27 @@ open-source projects. They have different responsibilities.
 | Simple distribution | AFF | `.aff` files, `aff/` Git collection, generated index, offline verifier, candidate capture, starter agent instructions. |
 | Governed runtime | Proofpress | Authenticated workspace, separate agent and Owner credentials, evidence evaluation, Human Approval or Owner policy, current governed context, lifecycle handling, reliance and run records, self-hosted or hosted service. |
 | Bridge | Proofpress adapter, tested against AFF | Project a bounded Proofpress claim into AFF; receive an external AFF package as an untrusted candidate. A foreign receipt does not grant receiver-local authority. |
+
+## Decision-first direction — working design, November 4, 2026
+
+Proofpress is exploring a product loop around capture, verify, govern, use,
+and learn for production-agent decisions. ADF is a separate draft for the
+decision record; AFF continues to describe portable Findings that can support
+those decisions. This direction does not change AFF v0.1 or establish a
+completed integration. The [compatibility note](ADF-TRACE-BOUNDARY.md) defines
+the documentation-level boundary.
+
+Runtime use has three distinct modes: **Advise** supplies applicable cases;
+**Enforce** checks required conditions at a controlled operation; **Execute**
+runs a validated procedure under explicit preconditions. AFF's verifier and
+Git collection provide none of these execution guarantees by themselves.
+Hooks, adapters, wrappers, and gateways must be verified in the actual runtime
+before any claim of blocking or stopping old behavior.
+
+ADF's exact draft schema and the commercial/open implementation split remain
+under review. This document does not change the Apache-2.0 rights already
+granted for AFF or Proofpress code. Basic AFF capture, verification, export,
+and independent use do not require a Proofpress account.
 
 ## Extraction decision
 

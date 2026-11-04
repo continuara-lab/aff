@@ -7,7 +7,7 @@ may want to reuse. The record carries its scope, evidence references, attributed
 checks and decisions, and revision history. A receiver decides for itself
 whether to trust and use a finding.
 
-AFF is also a governance framework for the life of that Finding: propose,
+AFF also provides a vocabulary for the life of that Finding: propose,
 verify, decide local admission, revise or withdraw, and record later use.
 The v0.1 format represents parts of this lifecycle; the CLI currently creates
 candidates, performs mechanical checks, and manages a Git collection. It does
@@ -16,11 +16,24 @@ not enforce local approval or automate withdrawal. See the
 
 This repository contains the **v0.1 draft**, not a ratified standard.
 
+## Findings, decisions, and runtime use
+
+AFF retains its Finding contract as Proofpress explores decision-first product
+interfaces. A Finding records a bounded conclusion; a decision records a choice
+under particular conditions. A decision can cite a Finding as evidence, but a
+Finding is not automatically a decision, a reusable rule, or execution approval.
+
+The separate **Agent Decision Format (ADF) draft** explores decision records.
+AFF v0.1 remains usable on its own, with the same schema, identifiers, receipts,
+and digest rules. There is no AFF-to-ADF converter or implemented ADF runtime
+integration in this release. See the [ADF / TRACE boundary and compatibility
+note](docs/ADF-TRACE-BOUNDARY.md) for explicit mappings and required loss reports.
+
 ## Try it in two minutes
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install 'git+https://github.com/only-then-labs/aff.git@v0.1.0a1'
+.venv/bin/python -m pip install 'git+https://github.com/continuara-lab/aff.git@v0.1.0a1'
 .venv/bin/aff demo
 cd aff-demo
 ../.venv/bin/aff collection check
@@ -42,6 +55,7 @@ Reference material:
 - [JSON Schema](schema/oaff-0.1.schema.json)
 - [Positive and negative fixtures](fixtures/README.md)
 - [Proofpress field mapping](docs/PROOFPRESS-MAPPING.md)
+- [ADF / TRACE boundary and compatibility note](docs/ADF-TRACE-BOUNDARY.md)
 - [KIP/OKF interoperability mapping and loss report](docs/KIP-OKF-INTEROP.md)
 - [Lifecycle reconciliation boundary](docs/LIFECYCLE-RECONCILIATION.md)
 - [Conformance runner](docs/CONFORMANCE.md) and [contribution process](CONTRIBUTING.md)
