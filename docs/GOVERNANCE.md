@@ -7,6 +7,12 @@ authenticate people, decide truth, grant a recipient permission to rely, or
 operate a hosted workflow. Those actions belong to the team or receiving
 system. The [specification](../spec/OAFF-v0.1.md) defines the wire contract.
 
+The `adoption_decision` receipt is a decision about a recipient's use of a
+Finding revision. It is not a general business-decision record, evidence that
+an agent chose wisely, or permission to execute a transaction. The emerging
+ADF decision-record design is separate; see the
+[ADF / TRACE boundary](ADF-TRACE-BOUNDARY.md).
+
 | Stage | Meaning | Available today |
 | --- | --- | --- |
 | Propose | Preserve one bounded conclusion, source evidence, scope, and producer attribution as a candidate. | `aff capture` creates a new `.aff` with no approval receipts. The producer reviews the wording. |
